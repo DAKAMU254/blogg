@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+</head>
+<body>
+    <h1>Calorie Tracker</h1>
+
+    <h2>Add Food Entry</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Food Entries</h2>
+    <ul>
+        {% for entry in entries %}
+        <li>{{ entry.name }}: {{ entry.calories }} calories</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total Calories: {{ total_calories }}</h3>
+</body>
+</html>

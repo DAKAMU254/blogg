@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-nnmvy7^q7--*w#j8x@hje65n15gw6h)=r2!991f0tn@iuwi793
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+import dj_database_url
 ALLOWED_HOSTS = []
 
 
@@ -74,13 +74,18 @@ WSGI_APPLICATION = 'calorie_tracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'kamau',
+#         'PASSWORD': '22235599',
+#         'HOST': 'localhost',  # e.g., 'localhost' 
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgresql://kama_sdte_user:NXf5hWCaJJQfIzXX2bFuWplCM4yyUpBC@dpg-ctucp83qf0us73f2rbg0-a.oregon-postgres.render.com/kama_sdte')
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
